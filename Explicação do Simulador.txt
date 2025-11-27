@@ -1,0 +1,47 @@
+Resumo:
+
+simulador gráfico interativo que visualiza a Árvore Sintática Abstrata (AST) gerada pelo parser de expressões aritméticas. Basta digitar expressões matemáticas em uma interface ImGUI e ver a árvore sendo renderizada graficamente na tela.
+Layout da tela:
+
+[Interface ImGUI - Topo]                   │
+│  ┌───────────────────────────────────────┐  │
+│  │ Input: [2 + 3 * 4          ]  [Parse]│  │
+│  │ Resultado: 14.00                      │  │
+│  │ [ ] Mostrar valores nos nós           │  │
+│  └───────────────────────────────────────┘  │
+│                                             │
+│  [Área de Visualização da AST]              │
+│                                             │
+│              (+)                            │
+│             /   \                           │
+│           2       (*)                       │
+│                  /   \                      │
+│                3       4                    │
+│                                             │
+│  [Informações adicionais - Rodapé]          │
+│  Nós: 5 | Altura: 3 | Expressão válida 
+
+
+Roteiro a falar: 
+
+-> Classes Parser (Expressao, Numero, ExpressaoBinaria) e  = A função delas é exclusivamente armazenar os dados e a estrutura da expressão. Elas são o "esqueleto" da árvore. Elas não desenham a arvore na tela, Elas são apenas a estrutura de dados que guardam a informação.
+
+Classe IteratorBFS = Implementa o Padrão Iterator, objeto que caminha pela a arvore, indo para os nós de nível a nível.
+
+Classe VisualizadorAST = Ele recebe a arvore pronta do Parser, calcula as posições x e y e desenha os nós os círculos e a arvore.
+
+Classe SimuladorAST = Classe Main para executar o projeto
+
+/////  Padrões  de  projetos "Composite" e explicando o  "iterator"///////
+
+Padrão Composite = Padrão estrutural já implementado que permite que você componha objetos em estruturas de árvores e então trabalhe com essas estruturas como se elas fossem objetos individuais. Ex "Parser"
+
+Padrão Iterator = padrão comportamental que implementei para percorrer elementos de uma coleção sem expor as representações da coleção.
+
+Problema na  Arvore AST: A classe SimuladorAST precisa andar nó por nó, para poder desenhar a arvore,  mais ela precisa saber dos detalhes internos e isso dexaria o código sujo e complicado de entender.
+
+Solução: Criação de nova classe IteradorBFS para saber como andar na arvore. isso faz com que o simuladorAST fique focado em quando ele vai animar a arvore e o Iterador ficaria focado em como encontrar o próximo nó, e deixaria  o código fica mais limpo e eficiente.
+
+
+
+Expressoes para teste:  2 + 3 * 4, (5 + 3) * 2, 20 / (4 - 2)
