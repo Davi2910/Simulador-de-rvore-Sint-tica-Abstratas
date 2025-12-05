@@ -11,3 +11,4 @@ Possivel consulta futuramente
 ## Maquina de turing
 
 
+<img width="1042" height="518" alt="image" src="https://github.com/user-attachments/assets/7519b96f-a516-4063-8a7f-bc8c27b726ae" />
